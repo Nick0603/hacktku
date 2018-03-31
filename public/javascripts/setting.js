@@ -7,11 +7,11 @@ $(document).ready(function () {
     $.cookie("room_id", room_id);
     $.cookie("pair_user_id", pair_user_id);
     $(".bigger_btn").click(function () {
-        cossole.log(room_id);
+        console.log(room_id);
     });
 
     $(".smaller_btn").click(function () {
-        cossole.log(pair_user_id);
+        console.log(pair_user_id);
     })
     console.log("user_id:", user_id);
     if (pair_user_id){

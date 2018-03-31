@@ -3,8 +3,6 @@ var router = express.Router();
 const cryptoRandomString = require('crypto-random-string');
 
 router.get('/', function (req, res) {
-    var socket = io.connect();
-    
     let room_id = req.query.room_id;
     let pair_user_id = req.query.pair_user_id;
     if (!room_id) {

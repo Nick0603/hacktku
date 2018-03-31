@@ -137,7 +137,7 @@ io.sockets.on('connection', function (socket) {
     }
   });
 
-  //有人下线
+  //連線
   socket.on('pair_success', function (data) {
     let room_id = data.room_id;
     let pair_user_id = data.pair_user_id;
