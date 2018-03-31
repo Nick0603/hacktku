@@ -25,7 +25,7 @@ $(document).ready(function () {
     socket.on('say', function (data) {
         //對所有人說話
         if (data.to == 'all') {
-            $("#contents").append('<div>' + data.from + '(' + now() + ')對 所有人 说：<br/>' + data.msg + '</div><br />');
+            $("#contents").append('<div>' + data.from + '(' + now() + ')對 所有人 說：<br/>' + data.msg + '</div><br />');
         }
         //對你密語
         if (data.to == from) {
@@ -93,7 +93,7 @@ $(document).ready(function () {
         var $msg = $("#input_content").html();
         if ($msg == "") return;
         if (to == "all") {
-            $("#contents").append('<div>你(' + now() + ')对 所有人 说：<br/>' + $msg + '</div><br />');
+            $("#contents").append('<div>你(' + now() + ')對 所有人 說：<br/>' + $msg + '</div><br />');
         } else {
             $("#contents").append('<div style="color:#00f" >你(' + now() + ')對 ' + to + ' 說：<br/>' + $msg + '</div><br />');
         }
