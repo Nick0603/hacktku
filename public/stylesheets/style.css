@@ -1,0 +1,22 @@
+:root {
+  --main-bg-color: #FFF;
+  --main-bg-color2: #eee;
+  --main-color:#aaa;
+}
+
+
+body {
+  padding: 50px;
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: var(--main-bg-color);
+}
+
+a {
+  color: #00B7FF;
+}
+
+button{
+  font:inherit;
+  background-color:inherit;
+  border:1px solid var(--main-color);
+}
