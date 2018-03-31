@@ -57,7 +57,7 @@ body,html{
 }
 
 .tool-btns{
-	top:1254px;
+	top:1000px;
 	width:96px;
 	line-height:104px;
 }
@@ -99,7 +99,7 @@ body,html{
 	height:201px;
 	background-color: #fff;
 	border-radius:100%;
-	top:1488px;
+	top:1268px;
 }
 .position-btns-left{
 	left:93px;
