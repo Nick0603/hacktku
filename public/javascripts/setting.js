@@ -4,21 +4,60 @@ $(document).ready(function () {
     let room_id = $("#room_id").data('room_id'); 
     let pair_user_id = $("#pair_user_id").data('pair_user_id');
     let user_id = $.cookie("user_id");
+    let adjust_size = $.cookie("adjust_size") || 0;
+    let adjust_top = $.cookie("adjust_top") || 0;
+
     $.cookie("room_id", room_id);
     $.cookie("pair_user_id", pair_user_id);
     $(".bigger_btn").click(function () {
-        console.log(room_id);
+        adjust_size+=0.01
+        $.cookie('adjust_size',adjust_size);
+        adjustSize(adjust_size);
     });
-
     $(".smaller_btn").click(function () {
-        console.log(pair_user_id);
+        adjust_size-=0.01;
+        $.cookie('adjust_size', adjust_size);
+        adjustSize(adjust_size);
     })
-    console.log("user_id:", user_id);
+    $(".up_btn").click(function () {
+        adjust_top-=0.01;
+        $.cookie('adjust_top', adjust_top);
+        adjustTop(adjust_top);
+    });
+    $(".down_btn").click(function () {
+        adjust_top+=0.01;
+        $.cookie('adjust_top', adjust_top);
+        adjustTop(adjust_top);
+    })
+
     if (pair_user_id){
         console.log('pair_user_id:',pair_user_id);
         socket.emit('pair_success', { room_id: room_id, pair_user_id: pair_user_id });
     }
-    let w = $(window).width();
-    let h = $(window).height();
-    console.log()
+    // let w = $(window).width();
+    // let h = $(window).height();
+    // console.log(w,h);
+
+    let origin_img = {
+        width: $('.setting-img').css('width').split('px')[0],
+        height: $('.setting-img').css('height').split('px')[0],
+        top: $('.setting-img').css('top').split('px')[0]
+    }
+    let finish_btn = {
+        width: $('.finish-btn').css('width').split('px')[0],
+        height: $('.finish-btn').css('height').split('px')[0],
+        top: $('.finish-btn').css('top').split('px')[0]
+    }
+    function adjustSize(size) {
+        $(".setting-img").css('width', (1+size) * origin_img.width + 'px');
+        $(".setting-img").css('height', (1+size) * origin_img.height + 'px');
+        $(".finish-btn").css('width', (1+size) * finish_btn.width + 'px');
+        $(".finish-btn").css('height', (1+size) * finish_btn.height + 'px');
+    }
+
+    function adjustTop(top) {
+        $(".setting-img").css('top', (1+top) * origin_img.top + 'px');
+        $(".finish-btn").css('top', (1+top) * finish_btn.top + 'px');
+    }
 });
+
