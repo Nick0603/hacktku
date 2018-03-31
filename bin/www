@@ -118,7 +118,6 @@ io.sockets.on('connection', function (socket) {
       client_arr = Object.keys(clients_object).map(key => clients_object[key])
       client_arr.forEach(function (client) {
         if (client.name == data.to) {
-          console.log(client);
           client.emit('say', data);
         }
       });

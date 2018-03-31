@@ -3,9 +3,9 @@ var router = express.Router();
 
 router.get('/', function (req, res) {
   if (req.cookies.user == null) {
-    res.redirect('/signin');
+    res.redirect('/chat_signin');
   } else {
-    res.render('index', { title: 'Express' });
+    res.render('chat');
   }
 });
 
