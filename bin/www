@@ -144,4 +144,13 @@ io.sockets.on('connection', function (socket) {
       socket.broadcast.emit('pair_success', { room_id: room_id, pair_user_id: pair_user_id });
     }
   });
+
+  //連線
+  socket.on('setting_finish', function (data) {
+    let room_id = data.room_id;
+    let pair_user_id = data.pair_user_id;
+    if (true) {
+      socket.broadcast.emit('setting_finish', { room_id: room_id, pair_user_id: pair_user_id });
+    }
+  });
 });

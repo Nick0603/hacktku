@@ -9,6 +9,7 @@ var signinRouter = require('./routes/signin');
 var makePairRouter = require('./routes/make_pair');
 var aboutRouter = require('./routes/about');
 var settingRouter = require('./routes/setting');
+var gameRouter = require('./routes/game');
 
 
 
@@ -32,6 +33,7 @@ app.use('/signin', signinRouter);
 app.use('/make_pair', makePairRouter);
 app.use('/about', aboutRouter);
 app.use('/setting', settingRouter);
+app.use('/game', gameRouter);
 
 var chatRouter = require('./routes/chat');
 var chatSignInRouter = require('./routes/chat_signin');

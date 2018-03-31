@@ -1,13 +1,16 @@
+
 extends layout
 
 block head
   title loading
-  link(rel='stylesheet', href='/stylesheets/make_pair.css')
-  script(type='text/javascript', src='javascripts/make_pair.js')
+  link(rel='stylesheet', href='/stylesheets/game.css')
+  script(type='text/javascript', src='javascripts/game.js')
 
 block content
+  #position(hidden data-position=`${position}`)
   .content
-    .main
-      .create
-        img(src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example", alt="")
+    img(class=`logo ${position}` src="images/logo.png", alt="")
+    img(class=`description-img ${position}` src="images/setting.png", alt="")
+    button(class=`start-game-btn ${position}`) 開始遊戲
+
     

@@ -59,5 +59,22 @@ $(document).ready(function () {
         $(".setting-img").css('top', (1+top) * origin_img.top + 'px');
         $(".finish-btn").css('top', (1+top) * finish_btn.top + 'px');
     }
+
+    $('.finish-btn').click(function(){
+        socket.emit('setting_finish', { room_id: room_id});
+        if (!$.cookie('pair_user_id')) {
+            window.location.href = window.location.origin + "/game?room_id=" + room_id + "&position=left";
+        } else {
+            window.location.href = window.location.origin + "/game?room_id=" + room_id + "&position=right";
+        }
+    });
+
+    socket.on('setting_finish', function (data) {
+        if (data.pair_user_id == $.cookie('user_id')){
+            window.location.href = window.location.origin + "/game?room_id=" + room_id + "&position=right";
+        }else{
+            window.location.href = window.location.origin + "/game?room_id=" + room_id + "&position=left";
+        }
+    });
 });
 
