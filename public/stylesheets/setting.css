@@ -1,0 +1,127 @@
+body,html{
+	position: relative;
+	height:1920px;
+}
+
+.content{
+    position: absolute;
+    width:100%;
+		height:100%;
+		top:0%;
+		overflow: hidden;
+    background-image: linear-gradient(to top, #fde9bf, #f8b932);
+}
+
+.content *{
+    position: absolute;
+}
+
+.logo-left{
+	top:16px;
+	left:16px;
+}
+.logo-right{
+  display:none;
+}
+
+.show_text{
+  width: 360px;
+  height: 87px;
+  font-family: NotoSansMonoCJKtc;
+	font-size: 60px;
+	color:#FFF;
+	top:156px;
+}
+.show_text-left{
+	left:100%;
+	transform: translateX(-50%);
+}
+.show_text-right{
+	right:100%;
+	transform: translateX(50%);
+}
+
+.setting-img{
+	width:1380px;
+	height:1104px;
+}
+.setting-img-left{
+	left:100%;
+	top:303px;
+	transform: translateX(-50%);
+}
+.setting-img-right{
+	right:100%;
+	top:303px;
+	transform: translateX(50%);
+}
+
+.tool-btns{
+	top:1254px;
+	width:96px;
+	line-height:104px;
+}
+.tool-btns-left{
+	left:144px;
+}
+.tool-btns-right{
+	right:144px;
+}
+
+.tool-btns .bigger_btn,
+.tool-btns .smaller_btn {
+	position: relative;
+  width: 96px;
+  height: 96px;
+  background-color: #ffffff;
+}
+.tool-btns .bigger_btn{
+  border-top-left-radius: 240px;
+  border-top-right-radius: 240px;
+	top:0
+}
+.tool-btns .smaller_btn{
+  border-bottom-left-radius: 240px;
+  border-bottom-right-radius: 240px;
+	bottom:0
+}
+
+.position-btns .up_btn,
+.position-btns .down_btn {
+  width: 54px;
+  height: 27px;
+}
+
+.position-btns{
+	width:201px;
+	height:201px;
+	background-color: #fff;
+	border-radius:100%;
+	top:1488px;
+}
+.position-btns-left{
+	left:93px;
+}
+.position-btns-right{
+	right:93px;
+}
+.position-btns .up_btn{
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 27px 27px 27px;
+	border-color: transparent transparent #007bff transparent;
+	top:0;
+	left:50%;
+	transform:translateY(100%) translateX(-50%);
+}
+.position-btns .down_btn{
+width: 0;
+height: 0;
+border-style: solid;
+border-width: 27px 27px 0 27px;
+border-color: #007bff transparent transparent transparent;
+top:100%;
+left:50%;
+transform:translateY(-200%) translateX(-50%);
+}

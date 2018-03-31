@@ -10,6 +10,9 @@ router.get('/', function (req, res) {
     }else{
         res.render('setting', { room_id:room_id,pair_user_id:pair_user_id});
     }
+
+    print(w);
+    print(h);
 });
 
 module.exports = router;
