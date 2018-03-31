@@ -1,0 +1,13 @@
+extends layout
+
+block head
+  title loading
+  link(rel='stylesheet', href='/stylesheets/make_pair.css')
+  script(type='text/javascript', src='javascripts/make_pair.js')
+
+block content
+  .content
+    .main
+      .create
+        img(src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example", alt="")
+    

@@ -92,6 +92,8 @@ function onListening() {
 
 var users = {};
 var io = require('socket.io').listen(server);
+global.io = io;
+
 io.sockets.on('connection', function (socket) {
 
   //有人上线
@@ -132,6 +134,15 @@ io.sockets.on('connection', function (socket) {
       delete users[socket.name];
       //向其他所有用户广播该用户下线信息
       socket.broadcast.emit('offline', { users: users, user: socket.name });
+    }
+  });
+
+  //有人下线
+  socket.on('pair_success', function (data) {
+    let room_id = data.room_id;
+    let pair_user_id = data.pair_user_id;
+    if(true){
+      socket.broadcast.emit('pair_success', { room_id: room_id, pair_user_id: pair_user_id });
     }
   });
 });

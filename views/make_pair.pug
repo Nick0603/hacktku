@@ -1,0 +1,29 @@
+
+extends layout
+
+block head
+  title loading
+  link(rel='stylesheet', href='/stylesheets/make_pair.css')
+  script(type='text/javascript', src='javascripts/make_pair.js')
+
+block content
+  .content
+    .main
+      .show
+        img(class="qrcode" src=`https://api.qrserver.com/v1/create-qr-code/?size=800x800&data=${user_id}`, alt="")
+        p.user_id #{user_id}
+      .join(hidden)
+        form(action="make_pair" method="POST")
+          .form_line
+            .title 撩who
+          .form_line
+            input(type='text' name='pair_user_id')
+          .form_line
+            button(type='submit' class='button') 配對
+            button(type='reset' class='button') 取消  
+      .loadding(hidden)
+        p 等等等...
+    .tool_footor
+      button.show_id_btn 顯示配對
+      button.join_pair_btn 加入配對
+    

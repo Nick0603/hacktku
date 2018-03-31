@@ -1,0 +1,29 @@
+.content{
+  text-align: center;
+}
+
+
+.content form{
+  text-align: center;
+  padding-top:3em;
+}
+
+.form_line{
+  margin-top:1em;
+}
+.form_line .title{
+  font-size:3em;
+}
+
+.form_line button{
+  padding:4px 12px;
+  margin:4px;
+  border-radius: 4px;
+}
+
+input{
+  width:35%;
+  height:64px;
+  border: 1px solid #000;
+  font:inherit;
+}

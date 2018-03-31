@@ -4,8 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var chatRouter = require('./routes/chat');
-var chatSignInRouter = require('./routes/chat_signin');
+var indexRouter = require('./routes/index');
+var signinRouter = require('./routes/signin');
+var makePairRouter = require('./routes/make_pair');
+var aboutRouter = require('./routes/about');
+var settingRouter = require('./routes/setting');
+
+
 
 var app = express();
 
@@ -21,6 +26,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 var users = {};//用戶列表
+
+app.use('/', indexRouter);
+app.use('/signin', signinRouter);
+app.use('/make_pair', makePairRouter);
+app.use('/about', aboutRouter);
+app.use('/setting', settingRouter);
+
+var chatRouter = require('./routes/chat');
+var chatSignInRouter = require('./routes/chat_signin');
 app.use('/chat', chatRouter);
 app.use('/chat_signin', chatSignInRouter);
 

@@ -1,0 +1,36 @@
+.content{
+  width: 100%;
+  text-align: center;
+}
+
+
+
+.show,.join{
+    position: absolute;
+    top:0;
+    width:100%;
+    text-align: center;   
+}
+
+.qrcode{
+    width:80%;
+}
+
+.tool_footor{
+    position: absolute;
+    bottom:0px;
+    height:10%;
+    width:100%;
+}
+
+.tool_footor button{
+    width:100%;
+}
+
+input{
+  width:35%;
+  height:64px;
+  border: 1px solid #000;
+  font:inherit;
+  text-align: center;
+}
