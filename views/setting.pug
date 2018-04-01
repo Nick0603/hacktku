@@ -7,8 +7,8 @@ block head
   script(type='text/javascript', src='javascripts/setting.js')
 
 block content
-  #room_id(hidden data-room_id=`${room_id}`)
-  #pair_user_id(hidden data-pair_user_id=`${pair_user_id}`)
+  .room_id(hidden data-room_id=`${room_id}`)
+  .pair_user_id(hidden data-pair_user_id=`${pair_user_id}`)
   .content
     img(class=`logo ${pair_user_id?'logo-left':'logo-right'}` src="images/logo.png", alt="")
     div(class=`show_text ${pair_user_id?'show_text-left':'show_text-right'}`) 配對中...
