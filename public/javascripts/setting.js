@@ -61,18 +61,25 @@ $(document).ready(function () {
     }
 
     $('.finish-btn').click(function(){
-        socket.emit('setting_finish', { room_id: room_id});
-        if (!$.cookie('pair_user_id')) {
-            window.location.href = window.location.origin + "/game?room_id=" + room_id + "&position=left";
-        } else {
+        socket.emit('setting_finish', { room_id: room_id, pair_user_id: pair_user_id});
+        console.log($.cookie('pair_user_id'));
+        if ($.cookie('pair_user_id') == "undefined") {
             window.location.href = window.location.origin + "/game?room_id=" + room_id + "&position=right";
+        } else {
+            window.location.href = window.location.origin + "/game?room_id=" + room_id + "&position=left";
         }
     });
 
     socket.on('setting_finish', function (data) {
-        if (data.pair_user_id == $.cookie('user_id')){
+        let user_id = $.cookie("user_id");
+        let room_id = $.cookie('room_id');
+        if ($.cookie("room_id") != data.room_id){
+            return ;
+        }
+        console.log(user_id, data);
+        if (user_id == data.pair_user_id) {
             window.location.href = window.location.origin + "/game?room_id=" + room_id + "&position=right";
-        }else{
+        }else {
             window.location.href = window.location.origin + "/game?room_id=" + room_id + "&position=left";
         }
     });
