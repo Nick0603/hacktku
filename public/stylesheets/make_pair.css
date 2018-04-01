@@ -7,7 +7,11 @@
   overflow: hidden;
 }
 
-
+.show img{
+    position: absolute;
+    top:0;
+    left:0;
+}
 
 .show.join{
     
@@ -29,15 +33,8 @@
     width:80%;
 }
 
-.tool_footor{
-    position: absolute;
-    bottom:145px;
-    left:25%;
-    height:5%;
-    width:50%;
-}
-.text{
-    
+
+.user_id{
     background-color:white; 
     font-size:60px;
     color:#f8b932;
@@ -48,19 +45,31 @@
     height:5%;
     width:30%;
 }
-.text2{
-    
-    background-color:white; 
-    font-size:60px;
-    color:#f8b932;
-    text-align: center; 
+
+input[name='pair_user_id']{
     position: absolute;
-    top: 30%;
-    left:20%;
+    text-align: center; 
+    color:#f8b932;
+    background-color:white; 
+    top:530px;
+    left:180px;
+    width:600px;
+    height:110px;
+    line-height: 120px;
+    font-size:60px;
+    border:none;
+}
+
+.tool_footor{
+    position: absolute;
+    bottom:145px;
+    left:25%;
     height:5%;
     width:50%;
 }
+
 .tool_footor button{
+    position: static;
     width:50px;
     height: 50px;
     margin: 5px;
