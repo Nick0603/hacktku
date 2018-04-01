@@ -1,12 +1,12 @@
 $(document).ready(function () {
 
     let socket = io.connect();
-    let room_id = $("#room_id").data('room_id'); 
-    let pair_user_id = $("#pair_user_id").data('pair_user_id');
+    let room_id = $(".room_id").data('room_id'); 
+    let pair_user_id = $(".pair_user_id").data('pair_user_id');
     let user_id = $.cookie("user_id");
     let adjust_size = $.cookie("adjust_size") || 0;
     let adjust_top = $.cookie("adjust_top") || 0;
-
+    console.log(room_id,pair_user_id);
     $.cookie("room_id", room_id);
     $.cookie("pair_user_id", pair_user_id);
     $(".bigger_btn").click(function () {
@@ -29,7 +29,7 @@ $(document).ready(function () {
         $.cookie('adjust_top', adjust_top);
         adjustTop(adjust_top);
     })
-
+    
     if (pair_user_id){
         console.log('pair_user_id:',pair_user_id);
         socket.emit('pair_success', { room_id: room_id, pair_user_id: pair_user_id });
