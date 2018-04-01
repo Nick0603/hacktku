@@ -8,7 +8,8 @@ body,html{
     width:100%;
 		height:100%;
 		top:0%;
-		overflow: hidden;
+		overflow-x: hidden;
+		overflow-y: scroll;
     background-image: linear-gradient(to top, #fde9bf, #f8b932);
 }
 
