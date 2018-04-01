@@ -10,7 +10,7 @@ var makePairRouter = require('./routes/make_pair');
 var aboutRouter = require('./routes/about');
 var settingRouter = require('./routes/setting');
 var gameRouter = require('./routes/game');
-
+var animationRouter = require('./routes/animation');
 
 
 var app = express();
@@ -34,6 +34,7 @@ app.use('/make_pair', makePairRouter);
 app.use('/about', aboutRouter);
 app.use('/setting', settingRouter);
 app.use('/game', gameRouter);
+app.use('/animation', animationRouter);
 
 var chatRouter = require('./routes/chat');
 var chatSignInRouter = require('./routes/chat_signin');
