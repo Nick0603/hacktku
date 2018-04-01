@@ -145,6 +145,15 @@ io.sockets.on('connection', function (socket) {
     }
   });
 
+  //完成設置
+  socket.on('setting_finish', function (data) {
+    let room_id = data.room_id;
+    let pair_user_id = data.pair_user_id;
+    if (true) {
+      socket.broadcast.emit('setting_finish', { room_id: room_id, pair_user_id: pair_user_id });
+    }
+  });
+
   //開始遊戲1
   socket.on('start-game1', function (data) {
     let room_id = data.room_id;
