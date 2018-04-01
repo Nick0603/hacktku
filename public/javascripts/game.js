@@ -1,8 +1,9 @@
 $(document).ready(function () {
 
     let socket = io.connect();
-    let room_id = $("#room_id").data('room_id');
+    let view_pos = $("#position").data('position');
     let user_id = $.cookie("user_id");
+    let room_id = $.cookie("room_id");
     let adjust_size = $.cookie("adjust_size") || 0;
     let adjust_top = $.cookie("adjust_top") || 0;
     let animation_cat_id;
@@ -116,7 +117,6 @@ $(document).ready(function () {
     });
 
     $('.start-game-btn2').click(function () {
-        console.log("test");
         clearInterval(animation_cat_id);
         socket.emit('start-game2', { room_id: room_id });
         $('.game-description2-left').hide();
@@ -144,5 +144,67 @@ $(document).ready(function () {
         $('.game-optionC').removeAttr('hidden');
         $('.game-optionD').removeAttr('hidden');
     });
+
+
+    question_arr = [{
+        question:"曾經按過的粉專",
+        imgea_url:"/images/questions/question1.jpg",
+        option_arr:[
+            { name: '人類超有病 Baxuan', isAnswer:true },
+            { name: '台大公衛之夜', isAnswer:false },
+            { name: '雜學校｜Za Share', isAnswer:false },
+            { name: '房東的貓', isAnswer:false }
+        ],
+        content:"15th 資種，感謝你們今天成發完還不辭辛勞的參與聖誕趴，我真的覺得很開心，感謝辛苦協助的學員，看著大家的笑容，我也滿足了，希望大家以後可以一直持續歡樂下去，散播歡樂，散播愛。"
+    }, {
+        question:"曾經按過的粉專",
+        imgea_url: "/images/questions/question2.jpg",
+        option_arr: [
+            { name: '偷窺設計', isAnswer:false },
+            { name: '飆捍', isAnswer:false },
+            { name: '五倍紅寶石出礦坑', isAnswer:true },
+            { name: '49101 聽音樂的靈魂伴侶', isAnswer:false }
+        ]
+    }, {
+        question:"曾經按過的粉專",
+        imgea_url: "/images/questions/question3.png",
+        option_arr: [
+            { name: '告五人 Accusefive', isAnswer:false },
+            { name: '魔法吉緣 2018 WGC', isAnswer:false },
+            { name: 'PicSee 皮克看見', isAnswer:false },
+            { name: '這群人 TGOP', isAnswer:true }
+        ]
+    }]
+
+
+
+    console.log(view_pos);
+
+    if(view_pos=="left"){
+        setTimeout(() => {
+            let question_no = getRandom(0, 2);
+            let question = question_arr[question_no];
+            console.log(question);
+            setQuestion(question);
+            socket.emit('created_question', { room_id: room_id, question_no: question_no });
+        }, 1000);
+    }
+    socket.on('created_question', function (data) {
+        let question_no = data.question_no;
+        let question = question_arr[question_no];
+        console.log(data);
+        setQuestion(question);
+    });
+    
 });
 
+function setQuestion(question){
+    $(".game-img").attr("src", question.imgea_url);
+    $(".game-optionA").text(question.option_arr[0].name).data('is_answer', question.option_arr[0].isAnswer);
+    $(".game-optionB").text(question.option_arr[1].name).data('is_answer', question.option_arr[1].isAnswer);
+    $(".game-optionC").text(question.option_arr[2].name).data('is_answer', question.option_arr[2].isAnswer);
+    $(".game-optionD").text(question.option_arr[3].name).data('is_answer', question.option_arr[3].isAnswer);
+}
+function getRandom(min,max){
+    return Math.floor(Math.random()*(max-min+1)+min)
+}

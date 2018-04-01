@@ -163,12 +163,22 @@ io.sockets.on('connection', function (socket) {
     }
   });
 
-  //開始遊戲1
+  //開始遊戲2
   socket.on('start-game2', function (data) {
     let room_id = data.room_id;
     let pair_user_id = data.pair_user_id;
     if (true) {
       socket.broadcast.emit('start-game2', { room_id: room_id, pair_user_id: pair_user_id });
+    }
+  });
+
+  //出題目
+  socket.on('created_question', function (data) {
+    let room_id = data.room_id;
+    let pair_user_id = data.pair_user_id;
+    let question_no = data.question_no;
+    if (true) {
+      socket.broadcast.emit('created_question', { room_id: room_id, pair_user_id: pair_user_id, question_no: question_no});
     }
   });
 });
