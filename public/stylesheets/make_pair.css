@@ -7,20 +7,25 @@
   overflow: hidden;
 }
 
-.show img{
-    position: absolute;
-    top:0;
-    left:0;
+.show .join{
+  position: absolute;
+  position: absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+}
+.show img,.join img{
+  position: absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
 }
 
-.show.join{
-    
-    position: relative;
-    /* height:30%; */
-    bottom:250px;
-    
+.join{
     text-align: center;   
-    }
+}
 .inputID{
     width:35%;
     height:64px;
