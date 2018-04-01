@@ -88,14 +88,16 @@ body,html{
 }
 
 .game-description2-left.left{
-	top:300px;
+	transform: scale(0.8);
+	top:0px;
 	right:-100%;
-	transform: translateX(-90%);
 }
 .game-description2-left.right{
-	top:300px;
-	transform: translateX(-90%);
+	transform: scale(0.8);
+	top:0px;
+	right:0;
 }
+
 .start-game-btn2{
   width: 360px;
   height: 168px;

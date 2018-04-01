@@ -1,18 +1,15 @@
-
 extends layout
 
 block head
-  title 登入
+
   link(rel='stylesheet', href='/stylesheets/signin.css')
 
 block content
   .content
+    img(src="images/signin.png" width="980px")
+  
     form(method='POST')
       .form_line
-        .title 撩who
-      .form_line
-        label.form_label 暱稱：
         input(type='text' name='name')
       .form_line
-        button(type='submit' class='button') 登入
-        button(type='reset' class='button') 取消
+        button(type='submit' class='button')
